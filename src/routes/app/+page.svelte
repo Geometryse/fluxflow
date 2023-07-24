@@ -7,7 +7,6 @@
 	let flux: App.Task[] | null = null;
 	onMount(() => {
 		const fluxStorage = localStorage.getItem('data');
-		console.log('got data?');
 		if (fluxStorage) {
 			flux = JSON.parse(fluxStorage);
 		} else {

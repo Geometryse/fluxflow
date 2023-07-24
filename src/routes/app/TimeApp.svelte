@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import Timer from '../../components/simple/Timer.svelte';
-	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	export let flux: App.Task[];
 	const dispatch = createEventDispatcher();
 	let finished = false;
@@ -30,7 +30,7 @@
 	{:else}
 		<div transition:fade class="w-full h-full flex items-center justify-center flex-col">
 			<div class="w-min flex items-center flex-col">
-				<p class="text-2xl">
+				<p class="text-2xl text-center">
 					{flux[currentItem].name}
 				</p>
 				<Timer end={flux[currentItem].end} begin={flux[currentItem].begin} on:next={handleNext} />
