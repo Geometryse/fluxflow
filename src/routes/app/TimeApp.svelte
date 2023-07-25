@@ -21,7 +21,7 @@
 		<div transition:fade class="w-full h-full flex items-center justify-center flex-col">
 			<div class="flex-1" />
 			<p class="text-xl mb-3">gg.</p>
-			<div class="flex-1 my-5">
+			<div class="flex-1 py-5">
 				<button class="btn my-2 group-hover:opacity-100 opacity-0" on:click={handleClear}
 					>Clear</button
 				>
@@ -29,7 +29,7 @@
 		</div>
 	{:else if currentItem === -1}
 		<div transition:fade class="w-full h-full flex items-center justify-center flex-col">
-			<div class="flex-1 my-5" />
+			<div class="flex-1 py-5" />
 			<p class="text-xl mb-3">already finished.</p>
 			<div class="flex-1">
 				<button class="btn my-2 group-hover:opacity-100 opacity-0" on:click={handleClear}
@@ -38,7 +38,7 @@
 			</div>
 		</div>
 	{:else}
-		<div transition:fade class="w-full h-full flex items-center flex-col">
+		<div transition:fade class="w-full h-full flex items-center flex-col gap-8">
 			<div class="flex-1" />
 			<div class="w-min flex items-center flex-col">
 				<p class="text-2xl text-center my-1">
@@ -51,10 +51,8 @@
 						: 'After this, we finish!'}
 				</p>
 			</div>
-			<div class="flex-1 my-5">
-				<button class="btn my-2 group-hover:opacity-100 opacity-0" on:click={handleClear}
-					>Clear</button
-				>
+			<div class="flex-1">
+				<button class="btn group-hover:opacity-100 opacity-0" on:click={handleClear}>Clear</button>
 			</div>
 		</div>
 	{/if}
