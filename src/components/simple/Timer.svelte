@@ -47,7 +47,7 @@
 	});
 </script>
 
-<div class="flex items-center justify-center gap-8" style="font-family: 'Space Mono', monospace;">
+<div class="flex items-center justify-center gap-8 my-4" style="font-family: 'Space Mono', monospace;">
 	<p class="text-7xl h-20 font-light">{minutesStr}:{secondsStr}.{msStr}</p>
 </div>
 
