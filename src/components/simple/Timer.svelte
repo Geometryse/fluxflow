@@ -1,12 +1,16 @@
 <script lang="ts">
+	import { getMSSinceMidnight } from '$lib/util';
+	import { endAt } from 'firebase/firestore';
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 	export let end: number;
 	export let begin: number;
+
 	let minutesStr = '00';
 	let secondsStr = '00';
 	let msStr = '00';
 	let interval: NodeJS.Timer;
 	let percentDone: number;
+
 	const dispatch = createEventDispatcher();
 
 	const formatTime = (value: number) => {
@@ -21,11 +25,13 @@
 	};
 
 	const recalculateTime = () => {
-		let remainingTime = end - Date.now(); // in MS
-		percentDone = Math.round((-(begin - Date.now()) / (end - begin)) * 10000) / 100;
+		let remainingTime = end - getMSSinceMidnight(); // in MS
+		percentDone = Math.round((-(begin - getMSSinceMidnight()) / (end - begin)) * 10000) / 100;
+
 		const minutes = Math.floor(remainingTime / 1000 / 60);
 		const seconds = Math.floor((remainingTime / 1000) % 60);
 		const ms = remainingTime % 1000;
+
 		if (minutes < 0 && seconds < 0 && ms < 0) {
 			dispatch('next');
 			return;
@@ -47,7 +53,10 @@
 	});
 </script>
 
-<div class="flex items-center justify-center gap-8 my-4" style="font-family: 'Space Mono', monospace;">
+<div
+	class="flex items-center justify-center gap-8 my-4"
+	style="font-family: 'Space Mono', monospace;"
+>
 	<p class="text-7xl h-20 font-light">{minutesStr}:{secondsStr}.{msStr}</p>
 </div>
 

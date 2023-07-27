@@ -2,7 +2,7 @@
 	import TimeApp from './TimeApp.svelte';
 	import Enter from './Enter.svelte';
 	import { onMount } from 'svelte';
-	let textInput: string;
+	let textInput = '';
 
 	let flux: App.Task[] | null = null;
 	onMount(() => {

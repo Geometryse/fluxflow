@@ -45,7 +45,6 @@ declare global {
 			begin: number;
 			end: number;
 			duration: number; // in minutes
-			id: number;
 		}
 		// interface Locals {}
 		// interface PageData {}
