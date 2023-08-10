@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { getMSSinceMidnight } from '$lib/util';
-	import { endAt } from 'firebase/firestore';
 	import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 	export let end: number;
 	export let begin: number;
@@ -53,6 +52,9 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{minutesStr}:{secondsStr} - FluxFlow</title>
+</svelte:head>
 <div
 	class="flex items-center justify-center gap-8 my-4"
 	style="font-family: 'Space Mono', monospace;"
