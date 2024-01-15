@@ -18,7 +18,7 @@
 			placeholder="Input JSON here"
 		/>
 		<button type="submit" class="btn w-full my-3">Submit</button>
-		<a href="https://productivity-app-neon.vercel.app/app" target="_blank" class="link"
+		<a href="https://neoplan.vercel.app/app" target="_blank" class="link"
 			>Build your schedule here</a
 		>
 	</div>
